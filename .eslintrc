@@ -1,0 +1,10 @@
+{
+  "extends": ["jam/typescript/base"],
+  "globals": {
+    "imports": true,
+    "print": true
+  },
+  "rules": {
+    "no-restricted-globals": "off"
+  }
+}
