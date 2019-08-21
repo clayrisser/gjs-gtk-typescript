@@ -1,24 +1,22 @@
 imports.gi.versions.Gtk = '3.0';
-const { GObject, Gtk } = imports.gi;
+const { Gtk } = imports.gi;
 
 Gtk.init(null);
 
-const MyWindow = GObject.registerClass(
-  class MyWindow extends Gtk.Window {
-    button: any;
+class MyWindow extends Gtk.Window {
+  button: any;
 
-    _init() {
-      super._init({ title: 'Hello World' });
-      this.button = new Gtk.Button({ label: 'Click here' });
-      this.button.connect('clicked', MyWindow.onButtonClicked);
-      this.add(this.button);
-    }
-
-    static onButtonClicked() {
-      print('Hello World');
-    }
+  constructor() {
+    super({ title: 'Hello World' });
+    this.button = new Gtk.Button({ label: 'Click here' });
+    this.button.connect('clicked', this.handleClicked);
+    this.add(this.button);
   }
-);
+
+  handleClicked() {
+    console.log('Hello World');
+  }
+}
 
 const win = new MyWindow();
 win.connect('delete-event', () => Gtk.main_quit());
