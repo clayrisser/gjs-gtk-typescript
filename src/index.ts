@@ -1,14 +1,15 @@
 imports.gi.versions.Gtk = '3.0';
-const { Gtk } = imports.gi;
+import Gtk from 'gnome-gtk';
 
 Gtk.init(null);
 
 class MyWindow extends Gtk.Window {
-  button: any;
+  button: Gtk.Button;
 
   constructor() {
-    super({ title: 'Hello World' });
-    this.button = new Gtk.Button({ label: 'Click here' });
+    super(Gtk.WindowType.GTK_WINDOW_TOPLEVEL);
+    this.button = new Gtk.Button();
+    this.button.label = 'Click here';
     this.button.connect('clicked', this.handleClicked);
     this.add(this.button);
   }
