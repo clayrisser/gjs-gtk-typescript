@@ -4,6 +4,8 @@
 
 > gtk typescript app proof of concept
 
+![](assets/gjs-gtk-typescript.png)
+
 Please ★ this repo if you found it useful ★ ★ ★
 
 ## Features
